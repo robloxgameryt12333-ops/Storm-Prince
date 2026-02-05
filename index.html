@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Storm Prince | Minecraft Server</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron',sans-serif;
+}
+
+body{
+  background:#0a0a0f;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* PRELOADER */
+#preloader{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.loader{
+  width:70px;
+  height:70px;
+  border:4px solid #222;
+  border-top:4px solid cyan;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  box-shadow:0 0 25px cyan;
+}
+
+@keyframes spin{
+  100%{transform:rotate(360deg);}
+}
+
+/* NAVBAR */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:#111;
+  box-shadow:0 0 20px rgb(0,255,255);
+}
+
+.logo{
+  color:cyan;
+  text-shadow:0 0 15px cyan;
+}
+
+nav a{
+  margin-left:25px;
+  color:white;
+  text-decoration:none;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:cyan;
+  text-shadow:0 0 10px cyan;
+}
+
+/* HERO */
+.hero{
+  padding:90px 20px;
+  text-align:center;
+  background:radial-gradient(circle,#1a1a2e,#000);
+}
+
+.hero h1{
+  font-size:3.2rem;
+  color:rgb(0,255,255);
+  text-shadow:0 0 25px rgb(0,255,255);
+}
+
+.hero p{
+  margin-top:15px;
+  opacity:.8;
+}
+
+/* SECTIONS */
+.section{
+  width:80%;
+  margin:50px auto;
+  padding:30px;
+  background:#111;
+  border-radius:14px;
+  box-shadow:0 0 30px rgba(0,255,255,.35);
+}
+
+.section h2{
+  margin-bottom:20px;
+  color:cyan;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
+
+.box{
+  height:120px;
+  background:linear-gradient(135deg,#222,#000);
+  border:1px solid cyan;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 15px cyan;
+}
+
+/* FORM */
+form input,form textarea{
+  width:100%;
+  margin-bottom:15px;
+  padding:10px;
+  background:#000;
+  border:1px solid cyan;
+  color:white;
+}
+
+form button{
+  padding:10px 20px;
+  background:cyan;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  box-shadow:0 0 15px cyan;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="loader"></div>
+  <p>Loading Storm Prince...</p>
+</div>
+
+<header>
+  <div class="logo">⚡ Storm Prince</div>
+  <nav>
+    <a href="#updates">Updates</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#bugs">Bug Report</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Storm Prince Minecraft</h1>
+  <p>Build • Survive • Rule the Storm ⚡</p>
+</section>
+
+<section id="updates" class="section">
+  <h2>📢 Updates</h2>
+  <ul>
+    <li>✔ New Survival World</li>
+    <li>✔ Lag Fixed</li>
+    <li>⚡ Storm Events Coming Soon</li>
+  </ul>
+</section>
+
+<section id="gallery" class="section">
+  <h2>🖼 Gallery</h2>
+  <div class="gallery">
+    <div class="box">IMG</div>
+    <div class="box">IMG</div>
+    <div class="box">IMG</div>
+  </div>
+</section>
+
+<section id="bugs" class="section">
+  <h2>🐞 Bug Report</h2>
+  <form>
+    <input type="text" placeholder="Minecraft Username" required>
+    <textarea placeholder="Describe the bug..." required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Storm Prince Minecraft Server
+</footer>
+
+<script>
+window.addEventListener("load",()=>{
+  document.getElementById("preloader").style.display="none";
+});
+</script>
+
+</body>
+</html>
