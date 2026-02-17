@@ -1,214 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Storm Prince | Minecraft Server</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STORN PIXEL – Modern Minecraft Server</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #0b0f1c 0%, #1a1f33 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Orbitron',sans-serif;
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-body{
-  background:#0a0a0f;
-  color:white;
-  overflow-x:hidden;
-}
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
 
-/* PRELOADER */
-#preloader{
-  position:fixed;
-  inset:0;
-  background:black;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
+    .header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #a5f0ff, #6b8cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 4px 10px rgba(0,200,255,0.3);
+      letter-spacing: 2px;
+    }
 
-.loader{
-  width:70px;
-  height:70px;
-  border:4px solid #222;
-  border-top:4px solid cyan;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-  box-shadow:0 0 25px cyan;
-}
+    .header p {
+      font-size: 1.1rem;
+      color: #aaa;
+      margin-top: 10px;
+    }
 
-@keyframes spin{
-  100%{transform:rotate(360deg);}
-}
+    /* Navigation */
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 30px 0;
+    }
 
-/* NAVBAR */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 40px;
-  background:#111;
-  box-shadow:0 0 20px rgb(0,255,255);
-}
+    .nav-btn {
+      background: rgba(20, 30, 50, 0.7);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #ddd;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 12px 25px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-.logo{
-  color:cyan;
-  text-shadow:0 0 15px cyan;
-}
+    .nav-btn:hover {
+      background: #2a3f5e;
+      color: white;
+      transform: translateY(-2px);
+      border-color: #4a9eff;
+    }
 
-nav a{
-  margin-left:25px;
-  color:white;
-  text-decoration:none;
-  transition:.3s;
-}
+    /* Server IP card */
+    .ip-card {
+      background: rgba(10, 15, 30, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 30px;
+      padding: 30px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+    }
 
-nav a:hover{
-  color:cyan;
-  text-shadow:0 0 10px cyan;
-}
+    .ip-card span {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffd966, #ffaa33);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
 
-/* HERO */
-.hero{
-  padding:90px 20px;
-  text-align:center;
-  background:radial-gradient(circle,#1a1a2e,#000);
-}
+    .ip-card button {
+      background: #3a4a8c;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 40px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #5f7dcd;
+    }
 
-.hero h1{
-  font-size:3.2rem;
-  color:rgb(0,255,255);
-  text-shadow:0 0 25px rgb(0,255,255);
-}
+    .ip-card button:hover {
+      background: #4f62b0;
+    }
 
-.hero p{
-  margin-top:15px;
-  opacity:.8;
-}
+    /* Section styling */
+    .section {
+      margin: 70px 0;
+      scroll-margin-top: 30px;
+    }
 
-/* SECTIONS */
-.section{
-  width:80%;
-  margin:50px auto;
-  padding:30px;
-  background:#111;
-  border-radius:14px;
-  box-shadow:0 0 30px rgba(0,255,255,.35);
-}
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #fff;
+      border-left: 5px solid #4a9eff;
+      padding-left: 20px;
+    }
 
-.section h2{
-  margin-bottom:20px;
-  color:cyan;
-}
+    .section-title i {
+      color: #4a9eff;
+      font-size: 2rem;
+    }
 
-/* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:15px;
-}
+    /* Updates grid */
+    .updates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
 
-.box{
-  height:120px;
-  background:linear-gradient(135deg,#222,#000);
-  border:1px solid cyan;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 15px cyan;
-}
+    .update-card {
+      background: rgba(20, 30, 50, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.03);
+      border-radius: 30px;
+      padding: 25px;
+      transition: transform 0.2s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
 
-/* FORM */
-form input,form textarea{
-  width:100%;
-  margin-bottom:15px;
-  padding:10px;
-  background:#000;
-  border:1px solid cyan;
-  color:white;
-}
+    .update-card:hover {
+      transform: translateY(-5px);
+      background: rgba(30, 40, 65, 0.8);
+    }
 
-form button{
-  padding:10px 20px;
-  background:cyan;
-  border:none;
-  cursor:pointer;
-  font-weight:bold;
-  box-shadow:0 0 15px cyan;
-}
+    .update-card h3 {
+      font-size: 1.4rem;
+      color: #ffd966;
+      margin-bottom: 12px;
+    }
 
-footer{
-  text-align:center;
-  padding:20px;
-  opacity:.6;
-}
-</style>
+    .update-card p {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+    }
+
+    /* Gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      background: #1e243b;
+      border-radius: 25px;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6f7a9e;
+      font-size: 2.5rem;
+      border: 1px solid #2f3a5c;
+      transition: 0.2s;
+    }
+
+    .gallery-item:hover {
+      border-color: #4a9eff;
+      background: #252e4a;
+    }
+
+    /* About & Support cards */
+    .about-content, .support-content {
+      background: rgba(15, 22, 40, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.03);
+      font-size: 1.1rem;
+    }
+
+    .support-content a {
+      color: #ffd966;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .support-content a:hover {
+      color: #ffaa33;
+      text-decoration: underline;
+    }
+
+    .support-content i {
+      margin-right: 10px;
+      width: 25px;
+      color: #4a9eff;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px 0 10px;
+      font-size: 0.9rem;
+      color: #6a6f8a;
+      border-top: 1px solid #222842;
+      margin-top: 50px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header h1 { font-size: 2.4rem; }
+      .ip-card span { font-size: 1.4rem; }
+      .nav-btn { padding: 10px 18px; font-size: 0.9rem; }
+      .section-title { font-size: 1.8rem; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>STORN PIXEL</h1>
+      <p>✧ where creativity meets adventure ✧</p>
+    </div>
 
-<!-- PRELOADER -->
-<div id="preloader">
-  <div class="loader"></div>
-  <p>Loading Storm Prince...</p>
-</div>
+    <!-- Navigation Buttons -->
+    <div class="nav-bar">
+      <button class="nav-btn" onclick="document.getElementById('updates').scrollIntoView({behavior:'smooth'});"><i class="fas fa-sync-alt"></i> Updates</button>
+      <button class="nav-btn" onclick="document.getElementById('ip-section').scrollIntoView({behavior:'smooth'});"><i class="fas fa-server"></i> Server IP</button>
+      <button class="nav-btn" onclick="document.getElementById('support').scrollIntoView({behavior:'smooth'});"><i class="fas fa-question-circle"></i> Support</button>
+      <button class="nav-btn" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'});"><i class="fas fa-images"></i> Gallery</button>
+      <button class="nav-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});"><i class="fas fa-info-circle"></i> About</button>
+    </div>
 
-<header>
-  <div class="logo">⚡ Storm Prince</div>
-  <nav>
-    <a href="#updates">Updates</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#bugs">Bug Report</a>
-  </nav>
-</header>
+    <!-- Server IP Card (also target) -->
+    <div id="ip-section" class="ip-card" style="scroll-margin-top: 30px;">
+      <span id="server-ip">play.stornpixel.com</span>
+      <br>
+      <button id="copy-ip-btn" onclick="copyIP()"><i class="fas fa-copy"></i> Copy IP</button>
+    </div>
 
-<section class="hero">
-  <h1>Storm Prince Minecraft</h1>
-  <p>Build • Survive • Rule the Storm ⚡</p>
-</section>
+    <!-- Updates Section -->
+    <section id="updates" class="section">
+      <h2 class="section-title"><i class="fas fa-sync-alt"></i> Latest Updates</h2>
+      <div class="updates-grid">
+        <div class="update-card">
+          <h3>🎉 Season 2 Launch</h3>
+          <p>Brand new world with custom structures and improved performance.</p>
+        </div>
+        <div class="update-card">
+          <h3>⚙️ 1.20.4 Support</h3>
+          <p>Fully updated to the latest Minecraft version – join with any 1.20.x client.</p>
+        </div>
+        <div class="update-card">
+          <h3>🏆 Weekly Events</h3>
+          <p>Build battles, UHC, and parkour races every weekend. Prizes!</p>
+        </div>
+      </div>
+    </section>
 
-<section id="updates" class="section">
-  <h2>📢 Updates</h2>
-  <ul>
-    <li>✔ New Survival World</li>
-    <li>✔ Lag Fixed</li>
-    <li>⚡ Storm Events Coming Soon</li>
-  </ul>
-</section>
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+      <h2 class="section-title"><i class="fas fa-images"></i> Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><i class="fas fa-mountain"></i></div>
+        <div class="gallery-item"><i class="fas fa-tree"></i></div>
+        <div class="gallery-item"><i class="fas fa-city"></i></div>
+        <div class="gallery-item"><i class="fas fa-water"></i></div>
+        <div class="gallery-item"><i class="fas fa-dragon"></i></div>
+        <div class="gallery-item"><i class="fas fa-campground"></i></div>
+      </div>
+      <p style="text-align:center; font-size:0.9rem; margin-top:15px; color:#8a8fb0;">(replace with your own screenshots)</p>
+    </section>
 
-<section id="gallery" class="section">
-  <h2>🖼 Gallery</h2>
-  <div class="gallery">
-    <div class="box">IMG</div>
-    <div class="box">IMG</div>
-    <div class="box">IMG</div>
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2 class="section-title"><i class="fas fa-info-circle"></i> About STORN PIXEL</h2>
+      <div class="about-content">
+        <p>STORN PIXEL is a modern survival server built for players who love both classic Minecraft and fresh twists. We offer a semi‑vanilla experience with land claiming, grief prevention, and a friendly community. Whether you're a builder, redstoner, or explorer, you'll find a home here.</p>
+        <p style="margin-top:20px;"><i class="fas fa-globe" style="color:#4a9eff;"></i> <strong>World:</strong> Custom terrain with hidden secrets.<br>
+        <i class="fas fa-shield-alt" style="color:#4a9eff;"></i> <strong>Rules:</strong> No griefing, no hacking – respect all players.</p>
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="section">
+      <h2 class="section-title"><i class="fas fa-question-circle"></i> Support & Community</h2>
+      <div class="support-content">
+        <p>Need help? Have a suggestion? Join our Discord or send an email.</p>
+        <p style="margin:25px 0;"><i class="fab fa-discord"></i> <a href="#">https://discord.gg/stornpixel</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="#">support@stornpixel.com</a></p>
+        <p style="margin-top:25px;">📋 Server rules, FAQs, and updates are pinned in Discord.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>© 2025 STORN PIXEL. Not affiliated with Mojang AB.</p>
+    </div>
   </div>
-</section>
 
-<section id="bugs" class="section">
-  <h2>🐞 Bug Report</h2>
-  <form>
-    <input type="text" placeholder="Minecraft Username" required>
-    <textarea placeholder="Describe the bug..." required></textarea>
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<footer>
-  © 2026 Storm Prince Minecraft Server
-</footer>
-
-<script>
-window.addEventListener("load",()=>{
-  document.getElementById("preloader").style.display="none";
-});
-</script>
-
+  <!-- JavaScript -->
+  <script>
+    function copyIP() {
+      const ip = document.getElementById('server-ip').innerText;
+      navigator.clipboard.writeText(ip).then(() => {
+        const btn = document.getElementById('copy-ip-btn');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+        }, 2000);
+      }).catch(() => {
+        alert('Could not copy. Manual copy: ' + ip);
+      });
+    }
+  </script>
 </body>
 </html>
